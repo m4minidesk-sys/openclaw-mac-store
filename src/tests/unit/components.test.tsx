@@ -11,15 +11,15 @@ describe('HeroSection', () => {
     expect(screen.getByText(/AIエージェント搭載Mac/)).toBeInTheDocument()
   })
 
-  it('CTAボタンが存在する', () => {
+  it('CTAリンクが存在する', () => {
     render(<HeroSection />)
-    expect(screen.getByRole('button', { name: /今すぐ注文する/ })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /今すぐ注文する/ })).toBeInTheDocument()
   })
 
   it('CTAクリックでコールバックが呼ばれる', () => {
     const mockFn = vi.fn()
     render(<HeroSection onCTAClick={mockFn} />)
-    screen.getByRole('button').click()
+    screen.getByRole('link').click()
     expect(mockFn).toHaveBeenCalled()
   })
 })

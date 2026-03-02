@@ -1,35 +1,66 @@
 'use client'
-import { useState } from 'react'
 
-const FAQS = [
-  { q: 'OpenClawとは何ですか？', a: 'OpenClawはAIエージェントを動かすためのプラットフォームです。Claude等のAIモデルと連携し、タスクを自律的にこなすエージェントをMac上で動かせます。' },
-  { q: 'セットアップ内容は？', a: 'OpenClawのインストール・設定、初期エージェント設定、動作確認まで完了した状態でお届けします。電源を入れるだけで使い始められます。' },
-  { q: '返品・交換は可能ですか？', a: '商品到着後7日以内に未開封の場合に限り返品対応します。動作不良の場合は30日以内に交換対応します。' },
-  { q: '支払い方法は？', a: 'クレジットカード（Visa / Mastercard / American Express）に対応しています。Stripe決済で安全にお支払いいただけます。' },
+import * as Accordion from '@radix-ui/react-accordion'
+
+const FAQ_ITEMS = [
+  {
+    id: 'faq-1',
+    question: 'OpenClawとは？',
+    answer:
+      'OpenClaw は、Mac上で動作するAIエージェントプラットフォームです。Slack、GitHub、各種APIと連携し、タスクを自律的に実行します。プリインストール済みなので、電源を入れたその日から使い始められます。',
+  },
+  {
+    id: 'faq-2',
+    question: 'セットアップ内容は？',
+    answer:
+      'OpenClawのインストール・初期設定済みです。Slack連携、GitHub連携、AIモデル（Claude等）の設定サポートを30日間提供します。詳細はご購入後にお送りするセットアップガイドをご確認ください。',
+  },
+  {
+    id: 'faq-3',
+    question: '返品・交換は？',
+    answer:
+      '商品到着後7日以内に限り、未開封・未使用の場合のみ返品・交換を承ります。開封済みの場合は初期不良に限り対応いたします。詳細はお問い合わせフォームよりご連絡ください。',
+  },
+  {
+    id: 'faq-4',
+    question: '支払い方法は？',
+    answer:
+      'クレジットカード（Visa / Mastercard / American Express / JCB）、銀行振込に対応しています。分割払いは一部カードでご利用いただけます。',
+  },
 ]
 
-export function FAQSection() {
-  const [open, setOpen] = useState<number | null>(null)
+interface FAQSectionProps {
+  items?: typeof FAQ_ITEMS
+}
+
+export function FAQSection({ items = FAQ_ITEMS }: FAQSectionProps) {
   return (
     <section className="bg-brand-bg py-24 px-4">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-4xl font-bold text-brand-textDark text-center mb-12">よくある質問</h2>
-        <div className="space-y-4">
-          {FAQS.map((faq, i) => (
-            <div key={i} className="border border-brand-border rounded-2xl overflow-hidden">
-              <button
-                className="w-full text-left px-6 py-4 text-brand-textDark font-medium flex justify-between items-center hover:bg-white/5 transition-colors"
-                onClick={() => setOpen(open === i ? null : i)}
-              >
-                {faq.q}
-                <span className="text-brand-accent">{open === i ? '−' : '+'}</span>
-              </button>
-              {open === i && (
-                <div className="px-6 pb-4 text-brand-textDark/70 text-sm leading-relaxed">{faq.a}</div>
-              )}
-            </div>
+        <h2 className="text-4xl font-bold text-brand-textDark text-center mb-16">
+          よくある質問
+        </h2>
+        <Accordion.Root type="single" collapsible className="space-y-3">
+          {items.map((item) => (
+            <Accordion.Item
+              key={item.id}
+              value={item.id}
+              className="border border-brand-border rounded-xl overflow-hidden"
+            >
+              <Accordion.Header>
+                <Accordion.Trigger className="w-full flex items-center justify-between px-6 py-5 text-left text-brand-textDark font-medium hover:bg-white/5 transition-colors group">
+                  <span>{item.question}</span>
+                  <span className="text-brand-textDark/50 transition-transform group-data-[state=open]:rotate-180">
+                    ▼
+                  </span>
+                </Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content className="px-6 pb-5 text-brand-textDark/70 leading-relaxed data-[state=open]:animate-none">
+                {item.answer}
+              </Accordion.Content>
+            </Accordion.Item>
           ))}
-        </div>
+        </Accordion.Root>
       </div>
     </section>
   )
