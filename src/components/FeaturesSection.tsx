@@ -6,13 +6,13 @@ const FEATURES = [
 
 export function FeaturesSection() {
   return (
-    <section className="bg-brand-bg py-24 px-4">
+    <section className="bg-brand-bgSection py-24 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
         {FEATURES.map((f) => (
           <div key={f.title} className="text-center p-8 rounded-2xl border border-brand-border hover:border-brand-accent transition-colors">
             <div className="text-4xl mb-4">{f.icon}</div>
             <h3 className="text-xl font-semibold text-brand-textDark mb-2">{f.title}</h3>
-            <p className="text-brand-textDark/60">{f.desc}</p>
+            <p className="text-brand-textMuted">{f.desc}</p>
           </div>
         ))}
       </div>
