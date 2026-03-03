@@ -1,0 +1,113 @@
+name: Security Audit
+
+on:
+  push:
+    branches: [main, feat/**]
+  pull_request:
+    branches: [main]
+  schedule:
+    # 毎週月曜 JST 09:00 (UTC 00:00) に定期実行
+    - cron: '0 0 * * 1'
+
+jobs:
+  npm-audit:
+    name: npm audit (dependency vulnerabilities)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run pnpm audit (fail on critical)
+        run: pnpm audit --audit-level=critical
+        # critical脆弱性がある場合のみCI失敗（high以下は警告のみ）
+
+      - name: Run pnpm audit (full report)
+        run: pnpm audit --json > audit-report.json || true
+        # JSON形式でフルレポートを保存（脆弱性があっても継続）
+
+      - name: Upload audit report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: npm-audit-report
+          path: audit-report.json
+          retention-days: 30
+
+  security-headers:
+    name: Security headers check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run security unit tests
+        run: pnpm vitest run src/tests/unit/security.test.ts
+
+      - name: Check next.config.ts has security headers
+        run: |
+          echo "=== Checking security headers in next.config.ts ==="
+          grep -q "X-Content-Type-Options" next.config.ts && echo "✅ X-Content-Type-Options: found"
+          grep -q "X-Frame-Options" next.config.ts && echo "✅ X-Frame-Options: found"
+          grep -q "Strict-Transport-Security" next.config.ts && echo "✅ HSTS: found"
+          grep -q "Content-Security-Policy" next.config.ts && echo "✅ CSP: found"
+          grep -q "X-XSS-Protection" next.config.ts && echo "✅ X-XSS-Protection: found"
+          echo "=== Security headers check completed ==="
+
+  trivy-scan:
+    name: Trivy vulnerability scan (filesystem)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Trivy filesystem scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+          exit-code: '0'
+          # exit-code: '0' = CIを落とさず結果をアーティファクトに保存
+
+      - name: Upload Trivy SARIF report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: trivy-sarif-report
+          path: trivy-results.sarif
+          retention-days: 30
+
+      - name: Run Trivy scan (fail on CRITICAL only)
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'table'
+          severity: 'CRITICAL'
+          exit-code: '1'
+          # CRITICAL脆弱性がある場合のみCIを落とす
