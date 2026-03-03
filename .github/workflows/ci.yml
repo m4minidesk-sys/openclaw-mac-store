@@ -21,5 +21,5 @@ jobs:
           cache-dependency-path: pnpm-lock.yaml
       - run: pnpm install
       - run: pnpm lint
-      - run: pnpm test --run
+      - run: pnpm test
       - run: pnpm build
