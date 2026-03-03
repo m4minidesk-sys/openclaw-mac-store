@@ -11,7 +11,7 @@ export function ProductLineup({ products = PRODUCTS }: ProductLineupProps) {
         <h2 className="text-4xl md:text-5xl font-bold text-brand-textDark text-center mb-4">
           商品ラインナップ
         </h2>
-        <p className="text-center text-brand-textDark/60 mb-16 text-lg">
+        <p className="text-center text-brand-textMuted mb-16 text-lg">
           すべてのモデルに OpenClaw がプリインストール済み
         </p>
         <div className="grid md:grid-cols-3 gap-6">
@@ -23,19 +23,19 @@ export function ProductLineup({ products = PRODUCTS }: ProductLineupProps) {
               <h3 className="text-xl font-semibold text-brand-textDark mb-2">
                 {product.name}
               </h3>
-              <p className="text-brand-textDark/60 text-sm mb-2">{product.specs}</p>
-              <p className="text-brand-textDark/70 text-sm mb-6 flex-1">
+              <p className="text-brand-textMuted text-sm mb-2">{product.specs}</p>
+              <p className="text-brand-textMuted text-sm mb-6 flex-1">
                 {product.description}
               </p>
               <p className="text-3xl font-bold text-brand-textDark mb-6">
                 {formatPrice(product.price)}
-                <span className="text-sm font-normal text-brand-textDark/50 ml-1">（税込）</span>
+                <span className="text-sm font-normal text-brand-textSubtle ml-1">（税込）</span>
               </p>
               <button
                 disabled={!product.available}
                 aria-label={`${product.name}を購入する`}
                 className="w-full py-3 rounded-full font-medium transition-all
-                  bg-brand-accent text-white
+                  bg-brand-accentBtn text-white
                   disabled:opacity-40 disabled:cursor-not-allowed
                   enabled:hover:bg-brand-accentHover enabled:hover:scale-[1.02]"
               >

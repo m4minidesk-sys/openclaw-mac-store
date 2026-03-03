@@ -35,7 +35,7 @@ interface FAQSectionProps {
 
 export function FAQSection({ items = FAQ_ITEMS }: FAQSectionProps) {
   return (
-    <section className="bg-brand-bg py-24 px-4">
+    <section className="bg-brand-bgSection py-24 px-4">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-4xl font-bold text-brand-textDark text-center mb-16">
           よくある質問
@@ -50,12 +50,12 @@ export function FAQSection({ items = FAQ_ITEMS }: FAQSectionProps) {
               <Accordion.Header>
                 <Accordion.Trigger className="w-full flex items-center justify-between px-6 py-5 text-left text-brand-textDark font-medium hover:bg-white/5 transition-colors group">
                   <span>{item.question}</span>
-                  <span className="text-brand-textDark/50 transition-transform group-data-[state=open]:rotate-180">
+                  <span className="text-brand-textMuted transition-transform group-data-[state=open]:rotate-180">
                     ▼
                   </span>
                 </Accordion.Trigger>
               </Accordion.Header>
-              <Accordion.Content className="px-6 pb-5 text-brand-textDark/70 leading-relaxed data-[state=open]:animate-none">
+              <Accordion.Content className="px-6 pb-5 text-brand-textMuted leading-relaxed data-[state=open]:animate-none">
                 {item.answer}
               </Accordion.Content>
             </Accordion.Item>
