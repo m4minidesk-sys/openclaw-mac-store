@@ -1,0 +1,390 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FAQSection snapshot - closed > FAQセクション初期状態（全closed）のスナップショット 1`] = `
+<section
+  class="bg-brand-bg py-24 px-4"
+>
+  <div
+    class="max-w-3xl mx-auto"
+  >
+    <h2
+      class="text-4xl font-bold text-brand-textDark text-center mb-16"
+    >
+      よくある質問
+    </h2>
+    <div
+      class="space-y-3"
+      data-orientation="vertical"
+    >
+      <div
+        class="border border-brand-border rounded-xl overflow-hidden"
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <h3
+          data-orientation="vertical"
+          data-state="closed"
+        >
+          <button
+            aria-controls="radix-_r_1_"
+            aria-expanded="false"
+            class="w-full flex items-center justify-between px-6 py-5 text-left text-brand-textDark font-medium hover:bg-white/5 transition-colors group"
+            data-orientation="vertical"
+            data-radix-collection-item=""
+            data-state="closed"
+            id="radix-_r_0_"
+            type="button"
+          >
+            <span>
+              OpenClawとは？
+            </span>
+            <span
+              class="text-brand-textDark/50 transition-transform group-data-[state=open]:rotate-180"
+            >
+              ▼
+            </span>
+          </button>
+        </h3>
+        <div
+          aria-labelledby="radix-_r_0_"
+          class="px-6 pb-5 text-brand-textDark/70 leading-relaxed data-[state=open]:animate-none"
+          data-orientation="vertical"
+          data-state="closed"
+          hidden=""
+          id="radix-_r_1_"
+          role="region"
+          style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+        />
+      </div>
+      <div
+        class="border border-brand-border rounded-xl overflow-hidden"
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <h3
+          data-orientation="vertical"
+          data-state="closed"
+        >
+          <button
+            aria-controls="radix-_r_3_"
+            aria-expanded="false"
+            class="w-full flex items-center justify-between px-6 py-5 text-left text-brand-textDark font-medium hover:bg-white/5 transition-colors group"
+            data-orientation="vertical"
+            data-radix-collection-item=""
+            data-state="closed"
+            id="radix-_r_2_"
+            type="button"
+          >
+            <span>
+              セットアップ内容は？
+            </span>
+            <span
+              class="text-brand-textDark/50 transition-transform group-data-[state=open]:rotate-180"
+            >
+              ▼
+            </span>
+          </button>
+        </h3>
+        <div
+          aria-labelledby="radix-_r_2_"
+          class="px-6 pb-5 text-brand-textDark/70 leading-relaxed data-[state=open]:animate-none"
+          data-orientation="vertical"
+          data-state="closed"
+          hidden=""
+          id="radix-_r_3_"
+          role="region"
+          style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+        />
+      </div>
+      <div
+        class="border border-brand-border rounded-xl overflow-hidden"
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <h3
+          data-orientation="vertical"
+          data-state="closed"
+        >
+          <button
+            aria-controls="radix-_r_5_"
+            aria-expanded="false"
+            class="w-full flex items-center justify-between px-6 py-5 text-left text-brand-textDark font-medium hover:bg-white/5 transition-colors group"
+            data-orientation="vertical"
+            data-radix-collection-item=""
+            data-state="closed"
+            id="radix-_r_4_"
+            type="button"
+          >
+            <span>
+              返品・交換は？
+            </span>
+            <span
+              class="text-brand-textDark/50 transition-transform group-data-[state=open]:rotate-180"
+            >
+              ▼
+            </span>
+          </button>
+        </h3>
+        <div
+          aria-labelledby="radix-_r_4_"
+          class="px-6 pb-5 text-brand-textDark/70 leading-relaxed data-[state=open]:animate-none"
+          data-orientation="vertical"
+          data-state="closed"
+          hidden=""
+          id="radix-_r_5_"
+          role="region"
+          style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+        />
+      </div>
+      <div
+        class="border border-brand-border rounded-xl overflow-hidden"
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <h3
+          data-orientation="vertical"
+          data-state="closed"
+        >
+          <button
+            aria-controls="radix-_r_7_"
+            aria-expanded="false"
+            class="w-full flex items-center justify-between px-6 py-5 text-left text-brand-textDark font-medium hover:bg-white/5 transition-colors group"
+            data-orientation="vertical"
+            data-radix-collection-item=""
+            data-state="closed"
+            id="radix-_r_6_"
+            type="button"
+          >
+            <span>
+              支払い方法は？
+            </span>
+            <span
+              class="text-brand-textDark/50 transition-transform group-data-[state=open]:rotate-180"
+            >
+              ▼
+            </span>
+          </button>
+        </h3>
+        <div
+          aria-labelledby="radix-_r_6_"
+          class="px-6 pb-5 text-brand-textDark/70 leading-relaxed data-[state=open]:animate-none"
+          data-orientation="vertical"
+          data-state="closed"
+          hidden=""
+          id="radix-_r_7_"
+          role="region"
+          style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`ProductLineup snapshot > 全商品ラインナップのスナップショット 1`] = `
+<section
+  class="bg-brand-bg py-24 px-4"
+  id="product-lineup"
+>
+  <div
+    class="max-w-6xl mx-auto"
+  >
+    <h2
+      class="text-4xl md:text-5xl font-bold text-brand-textDark text-center mb-4"
+    >
+      商品ラインナップ
+    </h2>
+    <p
+      class="text-center text-brand-textDark/60 mb-16 text-lg"
+    >
+      すべてのモデルに OpenClaw がプリインストール済み
+    </p>
+    <div
+      class="grid md:grid-cols-3 gap-6"
+    >
+      <div
+        class="rounded-2xl border border-brand-border p-8 flex flex-col hover:border-brand-accent transition-colors"
+      >
+        <h3
+          class="text-xl font-semibold text-brand-textDark mb-2"
+        >
+          Mac mini M4 16GB + OpenClaw
+        </h3>
+        <p
+          class="text-brand-textDark/60 text-sm mb-2"
+        >
+          Apple M4 / 16GB RAM / 256GB SSD
+        </p>
+        <p
+          class="text-brand-textDark/70 text-sm mb-6 flex-1"
+        >
+          エントリーモデル。AIエージェント入門に最適。
+        </p>
+        <p
+          class="text-3xl font-bold text-brand-textDark mb-6"
+        >
+          ¥198,000
+          <span
+            class="text-sm font-normal text-brand-textDark/50 ml-1"
+          >
+            （税込）
+          </span>
+        </p>
+        <button
+          aria-label="Mac mini M4 16GB + OpenClawを購入する"
+          class="w-full py-3 rounded-full font-medium transition-all
+                  bg-brand-accent text-white
+                  disabled:opacity-40 disabled:cursor-not-allowed
+                  enabled:hover:bg-brand-accentHover enabled:hover:scale-[1.02]"
+          disabled=""
+        >
+          近日販売予定
+        </button>
+      </div>
+      <div
+        class="rounded-2xl border border-brand-border p-8 flex flex-col hover:border-brand-accent transition-colors"
+      >
+        <h3
+          class="text-xl font-semibold text-brand-textDark mb-2"
+        >
+          Mac mini M4 Pro 24GB + OpenClaw
+        </h3>
+        <p
+          class="text-brand-textDark/60 text-sm mb-2"
+        >
+          Apple M4 Pro / 24GB RAM / 512GB SSD
+        </p>
+        <p
+          class="text-brand-textDark/70 text-sm mb-6 flex-1"
+        >
+          プロモデル。複数エージェント並列稼働に。
+        </p>
+        <p
+          class="text-3xl font-bold text-brand-textDark mb-6"
+        >
+          ¥268,000
+          <span
+            class="text-sm font-normal text-brand-textDark/50 ml-1"
+          >
+            （税込）
+          </span>
+        </p>
+        <button
+          aria-label="Mac mini M4 Pro 24GB + OpenClawを購入する"
+          class="w-full py-3 rounded-full font-medium transition-all
+                  bg-brand-accent text-white
+                  disabled:opacity-40 disabled:cursor-not-allowed
+                  enabled:hover:bg-brand-accentHover enabled:hover:scale-[1.02]"
+          disabled=""
+        >
+          近日販売予定
+        </button>
+      </div>
+      <div
+        class="rounded-2xl border border-brand-border p-8 flex flex-col hover:border-brand-accent transition-colors"
+      >
+        <h3
+          class="text-xl font-semibold text-brand-textDark mb-2"
+        >
+          MacBook Air M3 16GB + OpenClaw
+        </h3>
+        <p
+          class="text-brand-textDark/60 text-sm mb-2"
+        >
+          Apple M3 / 16GB RAM / 256GB SSD
+        </p>
+        <p
+          class="text-brand-textDark/70 text-sm mb-6 flex-1"
+        >
+          どこでもAIエージェント。持ち歩きたい方に。
+        </p>
+        <p
+          class="text-3xl font-bold text-brand-textDark mb-6"
+        >
+          ¥228,000
+          <span
+            class="text-sm font-normal text-brand-textDark/50 ml-1"
+          >
+            （税込）
+          </span>
+        </p>
+        <button
+          aria-label="MacBook Air M3 16GB + OpenClawを購入する"
+          class="w-full py-3 rounded-full font-medium transition-all
+                  bg-brand-accent text-white
+                  disabled:opacity-40 disabled:cursor-not-allowed
+                  enabled:hover:bg-brand-accentHover enabled:hover:scale-[1.02]"
+          disabled=""
+        >
+          近日販売予定
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`ProductLineup snapshot - custom data > カスタム1商品のスナップショット 1`] = `
+<section
+  class="bg-brand-bg py-24 px-4"
+  id="product-lineup"
+>
+  <div
+    class="max-w-6xl mx-auto"
+  >
+    <h2
+      class="text-4xl md:text-5xl font-bold text-brand-textDark text-center mb-4"
+    >
+      商品ラインナップ
+    </h2>
+    <p
+      class="text-center text-brand-textDark/60 mb-16 text-lg"
+    >
+      すべてのモデルに OpenClaw がプリインストール済み
+    </p>
+    <div
+      class="grid md:grid-cols-3 gap-6"
+    >
+      <div
+        class="rounded-2xl border border-brand-border p-8 flex flex-col hover:border-brand-accent transition-colors"
+      >
+        <h3
+          class="text-xl font-semibold text-brand-textDark mb-2"
+        >
+          Mac mini M4 16GB + OpenClaw
+        </h3>
+        <p
+          class="text-brand-textDark/60 text-sm mb-2"
+        >
+          Apple M4 / 16GB RAM / 256GB SSD
+        </p>
+        <p
+          class="text-brand-textDark/70 text-sm mb-6 flex-1"
+        >
+          エントリーモデル。AIエージェント入門に最適。
+        </p>
+        <p
+          class="text-3xl font-bold text-brand-textDark mb-6"
+        >
+          ¥198,000
+          <span
+            class="text-sm font-normal text-brand-textDark/50 ml-1"
+          >
+            （税込）
+          </span>
+        </p>
+        <button
+          aria-label="Mac mini M4 16GB + OpenClawを購入する"
+          class="w-full py-3 rounded-full font-medium transition-all
+                  bg-brand-accent text-white
+                  disabled:opacity-40 disabled:cursor-not-allowed
+                  enabled:hover:bg-brand-accentHover enabled:hover:scale-[1.02]"
+          disabled=""
+        >
+          近日販売予定
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+`;
