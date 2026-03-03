@@ -34,3 +34,32 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## セットアップ
+
+### 環境変数
+
+`.env.local` を作成し以下を設定:
+
+```
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_xxx  # Stripe公開可能キー
+STRIPE_SECRET_KEY=sk_test_xxx                    # Stripeシークレットキー（絶対にコミット禁止）
+STRIPE_WEBHOOK_SECRET=whsec_xxx                  # Stripe Webhookシークレット
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+⚠️ `.env.local` は `.gitignore` により自動的にGit管理対象外になります。
+
+### 開発サーバー起動
+
+```bash
+pnpm install
+pnpm dev
+```
+
+### Stripe Webhook ローカルテスト
+
+```bash
+# Stripe CLI インストール後
+stripe listen --forward-to localhost:3000/api/stripe/webhook
+```
