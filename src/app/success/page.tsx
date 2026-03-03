@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function OrderSuccessPage() {
   return (
     <div className="min-h-screen bg-brand-bg flex items-center justify-center text-center px-4">
@@ -10,12 +12,12 @@ export default function OrderSuccessPage() {
           注文確認メールをお送りしました。<br />
           お届けまで今しばらくお待ちください。
         </p>
-        <a
+        <Link
           href="/"
           className="px-8 py-4 bg-brand-accent hover:bg-brand-accentHover text-white rounded-full text-lg font-medium transition-all"
         >
           トップページに戻る
-        </a>
+        </Link>
       </div>
     </div>
   )
