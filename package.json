@@ -10,7 +10,12 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "demo:slack": "cd src/demo && npx playwright test scenarios/slack-scenario.ts --headed",
+    "demo:discord": "cd src/demo && npx playwright test scenarios/discord-scenario.ts --headed",
+    "demo:telegram": "cd src/demo && npx playwright test scenarios/telegram-scenario.ts --headed",
+    "demo:subtitles": "cd src/demo && bash scripts/add-subtitles.sh",
+    "demo:export": "cd src/demo && bash scripts/export-final.sh"
   },
   "dependencies": {
     "@stripe/stripe-js": "^8.8.0",
