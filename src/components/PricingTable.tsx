@@ -1,11 +1,30 @@
+'use client'
+import { useState } from 'react'
 import { PRODUCTS, type Product } from '@/lib/products'
 import { ProductCard } from './ProductCard'
 
-interface PricingTableProps {
-  onBuy?: (product: Product) => void
-}
+export function PricingTable() {
+  const [loadingId, setLoadingId] = useState<string | null>(null)
 
-export function PricingTable({ onBuy }: PricingTableProps) {
+  const handleBuy = async (product: Product) => {
+    setLoadingId(product.id)
+    try {
+      const res = await fetch('/api/stripe/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId: product.id }),
+      })
+      const data = await res.json()
+      if (data.url) {
+        window.location.href = data.url
+      }
+    } catch (error) {
+      console.error('Checkout error:', error)
+    } finally {
+      setLoadingId(null)
+    }
+  }
+
   return (
     <section id="products" className="bg-brand-bg py-24 px-4">
       <div className="max-w-6xl mx-auto">
@@ -13,7 +32,12 @@ export function PricingTable({ onBuy }: PricingTableProps) {
         <p className="text-center text-brand-textDark/60 mb-16">あなたの用途に合わせてお選びください。</p>
         <div className="grid md:grid-cols-3 gap-6">
           {PRODUCTS.map((product) => (
-            <ProductCard key={product.id} product={product} onBuy={onBuy} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              onBuy={handleBuy}
+              loading={loadingId === product.id}
+            />
           ))}
         </div>
       </div>
